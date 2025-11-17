@@ -1,0 +1,191 @@
+body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+background-color: #e5e5e5;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+margin: 0;
+padding: 20px;
+box-sizing: border-box;
+/* Bubble settings */
+overflow: hidden;
+position: relative;
+}
+
+/* --- Content Container Styling --- */
+.container {
+background-color: #f7f7f7;
+padding: 30px;
+border-radius: 12px;
+text-align: center;
+max-width: 700px;
+width: 100%;
+box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+z-index: 10; /* Keep content above bubbles */
+position: relative;
+}
+
+/* --- Header Text Styling --- */
+.header-text p {
+color: #888;
+font-size: 0.8em;
+margin-bottom: 5px;
+letter-spacing: 1px;
+text-transform: uppercase;
+}
+
+.header-text h1 {
+font-size: 2.5em;
+color: #333;
+margin-top: 0;
+margin-bottom: 40px;
+line-height: 1.2;
+}
+
+.header-text .highlight {
+color: #a06fff; /* Purple highlight color */
+}
+
+/* --- Typing Cursor Animation (CSS for the blinking pipe) --- */
+.animated-text {
+position: relative;
+display: inline-block;
+}
+
+.animated-text::after {
+content: '|';
+position: absolute;
+right: -5px;
+top: 50%;
+transform: translateY(-50%);
+animation: blink-caret 0.75s step-end infinite;
+font-weight: normal;
+color: #a06fff;
+}
+
+@keyframes blink-caret {
+from, to { opacity: 0; }
+50% { opacity: 1; }
+}
+
+/* --- Input Area Styling (Based on your image) --- */
+.input-area {
+position: relative;
+width: 100%;
+margin-bottom: 30px;
+display: flex;
+align-items: flex-end; /* Align buttons to the bottom of the textarea */
+border: 1px solid #ccc;
+border-radius: 8px;
+padding: 10px;
+background-color: white;
+}
+
+textarea {
+flex-grow: 1; /* Allows textarea to take up available space */
+border: none;
+outline: none;
+resize: none;
+min-height: 100px;
+padding: 10px;
+font-size: 1em;
+background-color: transparent;
+color: #333;
+}
+
+.attach-button {
+background-color: #f0f0f0;
+color: #555;
+border: 1px solid #ddd;
+padding: 8px 15px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 0.9em;
+margin-right: 10px;
+white-space: nowrap;
+}
+
+.send-button {
+background-color: #a06fff;
+color: white;
+border: none;
+padding: 10px 15px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 1.2em;
+line-height: 1;
+display: flex;
+justify-content: center;
+align-items: center;
+height: 40px;
+width: 40px;
+}
+
+/* --- Footer Link Styling --- */
+.footer-links {
+margin-top: 20px;
+display: flex;
+justify-content: center;
+gap: 15px;
+}
+
+.repo-button {
+background-color: #333;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 20px;
+cursor: pointer;
+font-size: 0.9em;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.repo-button svg {
+fill: white;
+}
+
+/* --- Bubble Background Animation --- */
+.bubbles {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+z-index: 0; /* Place behind the container */
+}
+
+.bubble {
+position: absolute;
+bottom: -100px;
+background: rgba(160, 111, 255, 0.15);
+border-radius: 50%;
+opacity: 0.5;
+animation: bubble-up 15s infinite;
+}
+
+/* Define 10 bubbles with different sizes, speeds, and starting positions */
+.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.bubble:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-duration: 15s; animation-delay: 2s; }
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; animation-duration: 10s; animation-delay: 4s; }
+.bubble:nth-child(4) { width: 70px; height: 70px; left: 40%; animation-duration: 18s; animation-delay: 1s; }
+.bubble:nth-child(5) { width: 45px; height: 45px; left: 50%; animation-duration: 13s; animation-delay: 3s; }
+.bubble:nth-child(6) { width: 65px; height: 65px; left: 60%; animation-duration: 16s; animation-delay: 5s; }
+.bubble:nth-child(7) { width: 55px; height: 55px; left: 70%; animation-duration: 11s; animation-delay: 0.5s; }
+.bubble:nth-child(8) { width: 75px; height: 75px; left: 80%; animation-duration: 14s; animation-delay: 2.5s; }
+.bubble:nth-child(9) { width: 60px; height: 60px; left: 90%; animation-duration: 17s; animation-delay: 4.5s; }
+.bubble:nth-child(10) { width: 50px; height: 50px; left: 5%; animation-duration: 10s; animation-delay: 1.5s; }
+
+@keyframes bubble-up {
+0% {
+transform: translateY(0) scale(1);
+opacity: 0.5;
+}
+100% {
+transform: translateY(-100vh) scale(1.2); /* Move up the full viewport height */
+opacity: 0;
+}
+}
