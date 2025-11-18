@@ -38,3 +38,4 @@ function typeEffect() {
 // Start the animation immediately
 typeEffect();
 
+
