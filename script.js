@@ -2,7 +2,7 @@ const animatedTextSpan = document.querySelector('.animated-text');
 const phrases = [
     "make games",
     "do coding",
-    "class 6"
+    "am in class 6"
 ];
 let phraseIndex = 0;
 let charIndex = 0;
@@ -37,3 +37,4 @@ function typeEffect() {
 
 // Start the animation immediately
 typeEffect();
+
