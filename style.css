@@ -53,8 +53,7 @@ body {
 }
 
 .header-text .highlight {
-    /* *** MODIFIED FOR COLOR ANIMATION *** */
-    /* The animation will cycle the text color */
+    /* Text color cycling animation */
     animation: color-cycle 5s infinite alternate; 
     color: #a06fff; 
 }
@@ -71,7 +70,7 @@ body {
     right: -5px;
     top: 50%;
     transform: translateY(-50%);
-    /* *** MODIFIED FOR COLOR ANIMATION (Blink + Color Cycle) *** */
+    /* Color cycling on the cursor */
     animation: blink-caret 0.75s step-end infinite, color-cycle 5s infinite alternate; 
     font-weight: normal;
     color: #a06fff;
@@ -82,7 +81,7 @@ body {
     50% { opacity: 1; }
 }
 
-/* *** NEW KEYFRAMES FOR COLOR CYCLING *** */
+/* Text Color Cycling Keyframes */
 @keyframes color-cycle {
     0% { color: #ff0000; } /* Red */
     25% { color: #ffbf00; } /* Orange/Yellow */
@@ -226,11 +225,22 @@ body {
 }
 
 .tool-tag {
-    background-color: #eee;
-    color: #a06fff;
+    /* Base color for hue rotation */
+    background-color: #a06fff; 
+    color: white; /* White text for contrast */
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: bold;
     border: 1px solid #ddd;
+    
+    /* Animation to cycle background color */
+    filter: hue-rotate(0deg);
+    animation: tag-cycle 10s infinite linear; 
+}
+
+/* Keyframes for Tag Color Cycling */
+@keyframes tag-cycle {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
 }
