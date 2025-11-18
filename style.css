@@ -1,12 +1,22 @@
-/* --- Styling for the NEW Calculator Link --- */
+/* --- Updates to Corner Link Wrapper for vertical stacking --- */
+.corner-link-wrapper {
+    position: fixed;    
+    bottom: 30px;
+    right: 30px;
+    z-index: 20;    
+    /* ADDED: Stack links vertically, with a small gap */
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
 
-/* Base style: Copies the look of the game-sign-link for consistency */
+/* --- Styling for the NEW Calculator Link (with animation) --- */
 .calculator-sign-link {
     display: flex;
     align-items: center;
     gap: 8px;
     
-    /* NEW COLORS: Blue to match the calculator's equals button, but dark */
+    /* NEW COLORS: Blue to match the calculator's equals button */
     background-color: #007aff; 
     color: white;
     
@@ -19,8 +29,8 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s, transform 0.2s;
     
-    /* Position the link below the game link */
-    margin-top: 10px; 
+    /* ADDED: Apply the pulsing animation */
+    animation: pulse 3s infinite; 
 }
 
 /* Hover and icon styling */
@@ -32,3 +42,4 @@
 .calculator-sign-link svg {
     fill: white;
 }
+
