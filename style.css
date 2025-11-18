@@ -10,7 +10,9 @@ body {
     margin: 0;
     padding: 20px;
     box-sizing: border-box;
-    overflow: hidden; 
+    /* Allow scrolling now that the page is long */
+    overflow-y: auto; 
+    overflow-x: hidden; 
     position: relative;
 }
 
@@ -29,6 +31,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* Ensure the container is not clipped at the bottom */
+    margin: 50px 0; 
 }
 
 /* --- Header Text Styling --- */
@@ -44,7 +48,7 @@ body {
     font-size: 2.5em;
     color: #333;
     margin-top: 0;
-    margin-bottom: 20px; 
+    margin-bottom: 5px; 
     line-height: 1.2;
 }
 
@@ -116,7 +120,7 @@ body {
 
 /* --- Bubble Background Animation --- */
 .bubbles {
-    position: absolute;
+    position: fixed; /* Fixed position so bubbles don't scroll with content */
     top: 0;
     left: 0;
     width: 100%;
@@ -128,7 +132,6 @@ body {
 .bubble {
     position: absolute;
     bottom: -100px;
-    /* This will be overridden by nth-child, but good as a fallback */
     background: rgba(128, 0, 128, 0.3); 
     border-radius: 50%;
     opacity: 0.5;
@@ -156,4 +159,65 @@ body {
         transform: translateY(-100vh) scale(1.2);
         opacity: 0;
     }
+}
+
+/* --- Styles for the New Information Sections --- */
+.info-section {
+    width: 90%;
+    margin: 20px auto 40px auto;
+    text-align: left;
+    padding: 15px;
+    border-top: 2px solid #a06fff; /* A visual separator */
+}
+
+.info-section:last-child {
+    margin-bottom: 50px; /* Extra space at the bottom */
+}
+
+.info-section h2 {
+    color: #333;
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.info-section p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-section li {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.info-section li strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* --- Tool Tags/Icons Styling --- */
+.tool-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tool-tag {
+    background-color: #eee;
+    color: #a06fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: 1px solid #ddd;
 }
