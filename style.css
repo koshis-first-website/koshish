@@ -23,6 +23,11 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     z-index: 10;
     position: relative;
+    /* Since we removed the input, center the content vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 /* --- Header Text Styling --- */
@@ -38,7 +43,8 @@ body {
     font-size: 2.5em;
     color: #333;
     margin-top: 0;
-    margin-bottom: 40px;
+    /* Reduced margin since the input area is gone */
+    margin-bottom: 20px; 
     line-height: 1.2;
 }
 
@@ -68,82 +74,45 @@ body {
     50% { opacity: 1; }
 }
 
-/* --- Input Area Styling --- */
-.input-area {
-    position: relative;
-    width: 100%;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: flex-end;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px;
-    background-color: white;
+/* --- Corner Link Styling (NEW) --- */
+.corner-link-wrapper {
+    position: fixed; 
+    bottom: 30px;
+    right: 30px;
+    z-index: 20; 
 }
 
-textarea {
-    flex-grow: 1;
-    border: none;
-    outline: none;
-    resize: none;
-    min-height: 100px;
-    padding: 10px;
-    font-size: 1em;
-    background-color: transparent;
-    color: #333;
-}
-
-.attach-button {
-    background-color: #f0f0f0;
-    color: #555;
-    border: 1px solid #ddd;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    margin-right: 10px;
-    white-space: nowrap;
-}
-
-.send-button {
-    background-color: #a06fff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.2em;
-    line-height: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 40px;
-}
-
-/* --- Footer Link Styling --- */
-.footer-links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.repo-button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 0.9em;
+.game-sign-link {
     display: flex;
     align-items: center;
     gap: 8px;
+    background-color: #333; 
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    /* Apply the pulse animation */
+    animation: pulse 3s infinite; 
 }
 
-.repo-button svg {
+.game-sign-link:hover {
+    background-color: #a06fff; 
+    transform: translateY(-2px);
+}
+
+.game-sign-link svg {
     fill: white;
+}
+
+/* Pulsing Animation Keyframes */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
 }
 
 /* --- Bubble Background Animation --- */
