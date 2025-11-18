@@ -1,7 +1,7 @@
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* Dark background to make bubbles visible */
-    background-color: #1a1a2e; 
+    /* Changed to Dark Blue */
+    background-color: #00008b; 
     
     display: flex;
     justify-content: center;
@@ -25,7 +25,6 @@ body {
     box-shadow: 0 4px 20px rgba(0,0,0,0.05);
     z-index: 10;
     position: relative;
-    /* Center the content vertically since the input area is gone */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -96,7 +95,6 @@ body {
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s, transform 0.2s;
-    /* Apply the pulse animation */
     animation: pulse 3s infinite; 
 }
 
@@ -130,7 +128,8 @@ body {
 .bubble {
     position: absolute;
     bottom: -100px;
-    background: rgba(160, 111, 255, 0.15);
+    /* Changed to Red with 30% opacity */
+    background: rgba(255, 0, 0, 0.3); 
     border-radius: 50%;
     opacity: 0.5;
     animation: bubble-up 15s infinite;
