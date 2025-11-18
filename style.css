@@ -1,109 +1,16 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    /* Dark Blue background to make bubbles visible */
-    background-color: #00008b; 
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-    /* Allow scrolling now that the page is long */
-    overflow-y: auto; 
-    overflow-x: hidden; 
-    position: relative;
-}
+/* --- Styling for the NEW Calculator Link --- */
 
-/* --- Content Container Styling --- */
-.container {
-    background-color: #f7f7f7;
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    max-width: 700px;
-    width: 100%;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-    z-index: 10;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* Ensure the container is not clipped at the bottom */
-    margin: 50px 0; 
-}
-
-/* --- Header Text Styling --- */
-.header-text p {
-    color: #888;
-    font-size: 0.8em;
-    margin-bottom: 5px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.header-text h1 {
-    font-size: 2.5em;
-    color: #333;
-    margin-top: 0;
-    margin-bottom: 5px; 
-    line-height: 1.2;
-}
-
-.header-text .highlight {
-    /* Text color cycling animation */
-    animation: color-cycle 5s infinite alternate; 
-    color: #a06fff; 
-}
-
-/* --- Typing Cursor Animation --- */
-.animated-text {
-    position: relative;
-    display: inline-block;
-}
-
-.animated-text::after {
-    content: '|';
-    position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    /* Color cycling on the cursor */
-    animation: blink-caret 0.75s step-end infinite, color-cycle 5s infinite alternate; 
-    font-weight: normal;
-    color: #a06fff;
-}
-
-@keyframes blink-caret {
-    from, to { opacity: 0; }
-    50% { opacity: 1; }
-}
-
-/* Text Color Cycling Keyframes */
-@keyframes color-cycle {
-    0% { color: #ff0000; } /* Red */
-    25% { color: #ffbf00; } /* Orange/Yellow */
-    50% { color: #00ff00; } /* Green */
-    75% { color: #0000ff; } /* Blue */
-    100% { color: #ff00ff; } /* Magenta/Violet */
-}
-
-/* --- Corner Link Styling (Pulsing Button) --- */
-.corner-link-wrapper {
-    position: fixed; 
-    bottom: 30px;
-    right: 30px;
-    z-index: 20; 
-}
-
-.game-sign-link {
+/* Base style: Copies the look of the game-sign-link for consistency */
+.calculator-sign-link {
     display: flex;
     align-items: center;
     gap: 8px;
-    background-color: #333; 
+    
+    /* NEW COLORS: Blue to match the calculator's equals button, but dark */
+    background-color: #007aff; 
     color: white;
+    
+    /* Inherit layout from the game button */
     padding: 10px 15px;
     border-radius: 8px;
     text-decoration: none;
@@ -111,136 +18,17 @@ body {
     font-weight: bold;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s, transform 0.2s;
-    animation: pulse 3s infinite; 
+    
+    /* Position the link below the game link */
+    margin-top: 10px; 
 }
 
-.game-sign-link:hover {
-    background-color: #a06fff; 
+/* Hover and icon styling */
+.calculator-sign-link:hover {
+    background-color: #005bb5; /* Darker blue on hover */
     transform: translateY(-2px);
 }
 
-.game-sign-link svg {
+.calculator-sign-link svg {
     fill: white;
-}
-
-/* Pulsing Animation Keyframes */
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
-    100% { transform: scale(1); }
-}
-
-/* --- Bubble Background Animation --- */
-.bubbles {
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-}
-
-.bubble {
-    position: absolute;
-    bottom: -100px;
-    background: rgba(128, 0, 128, 0.3); 
-    border-radius: 50%;
-    opacity: 0.5;
-    animation: bubble-up 15s infinite;
-}
-
-/* Define 10 bubbles with different sizes, speeds, and RAINBOW colors */
-.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; animation-duration: 12s; animation-delay: 0s; background: rgba(255, 0, 0, 0.3); }     /* Red */
-.bubble:nth-child(2) { width: 60px; height: 60px; left: 20%; animation-duration: 15s; animation-delay: 2s; background: rgba(255, 127, 0, 0.3); } /* Orange */
-.bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; animation-duration: 10s; animation-delay: 4s; background: rgba(255, 255, 0, 0.3); } /* Yellow */
-.bubble:nth-child(4) { width: 70px; height: 70px; left: 40%; animation-duration: 18s; animation-delay: 1s; background: rgba(0, 255, 0, 0.3); }     /* Green */
-.bubble:nth-child(5) { width: 45px; height: 45px; left: 50%; animation-duration: 13s; animation-delay: 3s; background: rgba(0, 0, 255, 0.3); }     /* Blue */
-.bubble:nth-child(6) { width: 65px; height: 65px; left: 60%; animation-duration: 16s; animation-delay: 5s; background: rgba(75, 0, 130, 0.3); }   /* Indigo */
-.bubble:nth-child(7) { width: 55px; height: 55px; left: 70%; animation-duration: 11s; animation-delay: 0.5s; background: rgba(148, 0, 211, 0.3); } /* Violet */
-.bubble:nth-child(8) { width: 75px; height: 75px; left: 80%; animation-duration: 14s; animation-delay: 2.5s; background: rgba(255, 20, 147, 0.3); } /* Deep Pink */
-.bubble:nth-child(9) { width: 60px; height: 60px; left: 90%; animation-duration: 17s; animation-delay: 4.5s; background: rgba(0, 255, 255, 0.3); } /* Cyan */
-.bubble:nth-child(10) { width: 50px; height: 50px; left: 5%; animation-duration: 10s; animation-delay: 1.5s; background: rgba(255, 105, 180, 0.3); } /* Hot Pink */
-
-@keyframes bubble-up {
-    0% {
-        transform: translateY(0) scale(1);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(-100vh) scale(1.2);
-        opacity: 0;
-    }
-}
-
-/* --- Styles for the New Information Sections --- */
-.info-section {
-    width: 90%;
-    margin: 20px auto 40px auto;
-    text-align: left;
-    padding: 15px;
-    border-top: 2px solid #a06fff; /* A visual separator */
-}
-
-.info-section:last-child {
-    margin-bottom: 50px; /* Extra space at the bottom */
-}
-
-.info-section h2 {
-    color: #333;
-    font-size: 1.4em;
-    margin-top: 15px;
-    margin-bottom: 10px;
-}
-
-.info-section p {
-    font-size: 1.05em;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 15px;
-}
-
-.info-section ul {
-    list-style: none;
-    padding: 0;
-}
-
-.info-section li {
-    font-size: 1.1em;
-    margin-bottom: 8px;
-    color: #555;
-}
-
-.info-section li strong {
-    color: #333;
-    font-weight: 600;
-}
-
-/* --- Tool Tags/Icons Styling --- */
-.tool-icons {
-    margin-top: 10px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.tool-tag {
-    /* Base color for hue rotation */
-    background-color: #a06fff; 
-    color: white; /* White text for contrast */
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.9em;
-    font-weight: bold;
-    border: 1px solid #ddd;
-    
-    /* Animation to cycle background color */
-    filter: hue-rotate(0deg);
-    animation: tag-cycle 10s infinite linear; 
-}
-
-/* Keyframes for Tag Color Cycling */
-@keyframes tag-cycle {
-    0% { filter: hue-rotate(0deg); }
-    100% { filter: hue-rotate(360deg); }
 }
