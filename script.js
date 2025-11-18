@@ -1,9 +1,8 @@
 const animatedTextSpan = document.querySelector('.animated-text');
 const phrases = [
     "make games",
-    "create web apps",
-    "prototype products",
-    "develop ideas"
+    "do coding",
+    "class 6"
 ];
 let phraseIndex = 0;
 let charIndex = 0;
