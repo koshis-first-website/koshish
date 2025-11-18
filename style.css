@@ -53,7 +53,10 @@ body {
 }
 
 .header-text .highlight {
-    color: #a06fff;
+    /* *** MODIFIED FOR COLOR ANIMATION *** */
+    /* The animation will cycle the text color */
+    animation: color-cycle 5s infinite alternate; 
+    color: #a06fff; 
 }
 
 /* --- Typing Cursor Animation --- */
@@ -68,7 +71,8 @@ body {
     right: -5px;
     top: 50%;
     transform: translateY(-50%);
-    animation: blink-caret 0.75s step-end infinite;
+    /* *** MODIFIED FOR COLOR ANIMATION (Blink + Color Cycle) *** */
+    animation: blink-caret 0.75s step-end infinite, color-cycle 5s infinite alternate; 
     font-weight: normal;
     color: #a06fff;
 }
@@ -76,6 +80,15 @@ body {
 @keyframes blink-caret {
     from, to { opacity: 0; }
     50% { opacity: 1; }
+}
+
+/* *** NEW KEYFRAMES FOR COLOR CYCLING *** */
+@keyframes color-cycle {
+    0% { color: #ff0000; } /* Red */
+    25% { color: #ffbf00; } /* Orange/Yellow */
+    50% { color: #00ff00; } /* Green */
+    75% { color: #0000ff; } /* Blue */
+    100% { color: #ff00ff; } /* Magenta/Violet */
 }
 
 /* --- Corner Link Styling (Pulsing Button) --- */
@@ -120,7 +133,7 @@ body {
 
 /* --- Bubble Background Animation --- */
 .bubbles {
-    position: fixed; /* Fixed position so bubbles don't scroll with content */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
