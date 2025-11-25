@@ -102,23 +102,27 @@ body {
     100% { color: #ff00ff; } /* Magenta/Violet */
 }
 
-/* --- Info Section Styling (Targeting Yellow/Violet to Blue) --- */
+/* --- Info Section Styling (Applying Blue colors) --- */
 .info-section {
     width: 90%;
     margin: 20px auto 40px auto;
     text-align: left;
     padding: 15px;
-    border-top: 2px solid #007bff; /* Changed border to blue */
+    /* This rule sets the blue border. */
+    border-top: 2px solid #007bff; 
 }
 
-/* Targets the 'My Full Coding Journey' heading, which was originally yellow */
-.info-section h2[style*="color: #FFD700"] {
-    color: #007bff !important; /* Force blue */
+/* This rule makes the h2 text blue now that the inline style is gone */
+.info-section h2 {
+    color: #007bff;
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
-/* Targets the 'Don't forget to play my game!' paragraph, which was originally violet */
-p[style*="color: #a06fff"] { 
-    color: #007bff !important; /* Force blue */
+/* This rule makes the game link paragraph text blue */
+.info-section p[style*="font-weight: bold;"] {
+    color: #007bff;
 }
 
 .info-section li strong {
@@ -214,7 +218,7 @@ p[style*="color: #a06fff"] {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s, transform 0.2s;
     
-    animation: pulse 3s infinite; /* Added pulse animation */
+    animation: pulse 3s infinite; 
 }
 
 .calculator-sign-link:hover {
@@ -246,7 +250,7 @@ p[style*="color: #a06fff"] {
     animation: bubble-up var(--bubble-duration) infinite;
 }
 
-/* Define 10 bubbles with rainbow colors and timing */
+/* Define 10 bubbles with rainbow colors and timing using CSS variables */
 .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; --bubble-duration: 12s; --bubble-color-inner: rgba(255, 0, 0, 0.5); --bubble-color-outer: rgba(255, 0, 0, 0.3); }     /* Red */
 .bubble:nth-child(2) { width: 60px; height: 60px; left: 20%; --bubble-duration: 15s; --bubble-color-inner: rgba(255, 127, 0, 0.5); --bubble-color-outer: rgba(255, 127, 0, 0.3); animation-delay: 2s;} /* Orange */
 .bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; --bubble-duration: 10s; --bubble-color-inner: rgba(255, 255, 0, 0.5); --bubble-color-outer: rgba(255, 255, 0, 0.3); animation-delay: 4s;} /* Yellow */
