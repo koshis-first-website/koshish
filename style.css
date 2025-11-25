@@ -111,11 +111,13 @@ body {
     border-top: 2px solid #007bff; /* Changed border to blue */
 }
 
+/* Targets the 'My Full Coding Journey' heading, which was originally yellow */
 .info-section h2[style*="color: #FFD700"] {
-    color: #007bff !important; /* Force blue for "My Full Coding Journey 🚀" heading */
+    color: #007bff !important; /* Force blue */
 }
 
-p[style*="color: #a06fff"] { /* Target the "Don't forget to play my game!" paragraph */
+/* Targets the 'Don't forget to play my game!' paragraph, which was originally violet */
+p[style*="color: #a06fff"] { 
     color: #007bff !important; /* Force blue */
 }
 
@@ -180,7 +182,7 @@ p[style*="color: #a06fff"] { /* Target the "Don't forget to play my game!" parag
 }
 
 .game-sign-link:hover {
-    background-color: #007bff; /* Changed hover color to match blue theme */
+    background-color: #007bff; 
     transform: translateY(-2px);
 }
 
@@ -238,14 +240,13 @@ p[style*="color: #a06fff"] { /* Target the "Don't forget to play my game!" parag
 .bubble {
     position: absolute;
     bottom: -100px;
-    /* Use radial gradient for a more "bubble" look */
     background: radial-gradient(circle, var(--bubble-color-inner) 0%, var(--bubble-color-outer) 100%);
     border-radius: 50%;
     opacity: 0.5;
     animation: bubble-up var(--bubble-duration) infinite;
 }
 
-/* Define 10 bubbles with rainbow colors and timing using CSS variables */
+/* Define 10 bubbles with rainbow colors and timing */
 .bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; --bubble-duration: 12s; --bubble-color-inner: rgba(255, 0, 0, 0.5); --bubble-color-outer: rgba(255, 0, 0, 0.3); }     /* Red */
 .bubble:nth-child(2) { width: 60px; height: 60px; left: 20%; --bubble-duration: 15s; --bubble-color-inner: rgba(255, 127, 0, 0.5); --bubble-color-outer: rgba(255, 127, 0, 0.3); animation-delay: 2s;} /* Orange */
 .bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; --bubble-duration: 10s; --bubble-color-inner: rgba(255, 255, 0, 0.5); --bubble-color-outer: rgba(255, 255, 0, 0.3); animation-delay: 4s;} /* Yellow */
