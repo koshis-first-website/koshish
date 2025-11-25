@@ -59,3 +59,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // Start the animation loop
     type();
 });
+
