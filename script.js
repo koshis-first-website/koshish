@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (isDeleting) {
             // --- Deletion Phase ---
-            // Remove one character from the current content
             animatedTextElement.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
 
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
         } else {
             // --- Typing Phase ---
-            // Add one character to the current content
             animatedTextElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
 
