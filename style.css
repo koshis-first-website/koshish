@@ -1,13 +1,232 @@
-/* --- Updates to Corner Link Wrapper for vertical stacking --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    
+    /* NEW: Sky Blue background with a subtle rainbow pulse */
+    background: linear-gradient(45deg, #87CEEB, #ADD8E6, #87CEEB); /* Sky blue gradient */
+    background-size: 400% 400%;
+    animation: rainbow-background-pulse 15s ease infinite; /* Rainbow animation */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;    
+    overflow-x: hidden;    
+    position: relative;
+}
+
+/* NEW: Keyframes for Rainbow Background Pulse */
+@keyframes rainbow-background-pulse {
+    0% { background-position: 0% 50%; background-color: #87CEEB; } /* Sky Blue */
+    16% { background-position: 25% 50%; background-color: #FF7F50; } /* Coral */
+    33% { background-position: 50% 50%; background-color: #FFD700; } /* Gold */
+    50% { background-position: 75% 50%; background-color: #32CD32; } /* Lime Green */
+    66% { background-position: 100% 50%; background-color: #00BFFF; } /* Deep Sky Blue */
+    83% { background-position: 75% 50%; background-color: #8A2BE2; } /* Blue Violet */
+    100% { background-position: 0% 50%; background-color: #87CEEB; } /* Back to Sky Blue */
+}
+
+
+/* --- Content Container Styling --- */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for contrast */
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    z-index: 10;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;    
+}
+
+/* --- Header Text Styling --- */
+.header-text p {
+    color: #888;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.header-text h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 5px;    
+    line-height: 1.2;
+}
+
+.header-text .highlight {
+    /* Text color cycling animation */
+    animation: color-cycle 5s infinite alternate;    
+    color: #007bff; /* NEW: Changed highlight text to a vibrant blue */
+}
+
+/* --- Typing Cursor Animation --- */
+.animated-text {
+    position: relative;
+    display: inline-block;
+}
+
+.animated-text::after {
+    content: '|';
+    position: absolute;
+    right: -5px;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Color cycling on the cursor */
+    animation: blink-caret 0.75s step-end infinite, color-cycle 5s infinite alternate;    
+    font-weight: normal;
+    color: #007bff; /* NEW: Changed cursor color to blue */
+}
+
+@keyframes blink-caret {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+/* Text Color Cycling Keyframes */
+@keyframes color-cycle {
+    0% { color: #ff0000; } /* Red */
+    25% { color: #ffbf00; } /* Orange/Yellow */
+    50% { color: #00ff00; } /* Green */
+    75% { color: #0000ff; } /* Blue */
+    100% { color: #ff00ff; } /* Magenta/Violet */
+}
+
+/* --- Info Section Styling (Including Yellow Text Changes) --- */
+.info-section {
+    width: 90%;
+    margin: 20px auto 40px auto;
+    text-align: left;
+    padding: 15px;
+    border-top: 2px solid #007bff; /* NEW: Changed border to blue */
+}
+
+.info-section:last-child {
+    margin-bottom: 50px; /* Extra space at the bottom */
+}
+
+.info-section h2 {
+    color: #333;
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    /* Removed inline style, now controlled by .info-section h2 below */
+}
+
+/* NEW: Ensure the specific h2 in info-section is blue */
+.info-section h2[style*="color: rgb(255, 215, 0)"], 
+.info-section h2[style*="color: #FFD700"] {
+    color: #007bff !important; /* Force blue for specific "yellow" headings */
+}
+
+.info-section p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+/* NEW: Change specific paragraph text to blue */
+p[style*="color: #a06fff"] { /* Target the "Don't forget to play my game!" paragraph */
+    color: #007bff !important; /* Force blue */
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-section li {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.info-section li strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* --- Tool Tags/Icons Styling --- */
+.tool-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tool-tag {
+    background-color: #007bff; /* NEW: Changed tag background to blue */
+    color: white; 
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    
+    filter: hue-rotate(0deg);
+    animation: tag-cycle 10s infinite linear;    
+}
+
+/* Keyframes for Tag Color Cycling */
+@keyframes tag-cycle {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
+
+/* --- Corner Link Wrapper for vertical stacking --- */
 .corner-link-wrapper {
     position: fixed;    
     bottom: 30px;
     right: 30px;
     z-index: 20;    
-    /* ADDED: Stack links vertically, with a small gap */
     display: flex; 
     flex-direction: column;
     gap: 10px;
+}
+
+/* --- Existing Game Link Styling --- */
+.game-sign-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #333;    
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    animation: pulse 3s infinite;    
+}
+
+.game-sign-link:hover {
+    background-color: #007bff; /* NEW: Changed hover color to match blue theme */
+    transform: translateY(-2px);
+}
+
+.game-sign-link svg {
+    fill: white;
+}
+
+/* --- Pulsing Animation Keyframes --- */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
 }
 
 /* --- Styling for the NEW Calculator Link (with animation) --- */
@@ -16,11 +235,9 @@
     align-items: center;
     gap: 8px;
     
-    /* NEW COLORS: Blue to match the calculator's equals button */
     background-color: #007aff; 
     color: white;
     
-    /* Inherit layout from the game button */
     padding: 10px 15px;
     border-radius: 8px;
     text-decoration: none;
@@ -29,13 +246,12 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: background-color 0.2s, transform 0.2s;
     
-    /* ADDED: Apply the pulsing animation */
     animation: pulse 3s infinite; 
 }
 
 /* Hover and icon styling */
 .calculator-sign-link:hover {
-    background-color: #005bb5; /* Darker blue on hover */
+    background-color: #005bb5; 
     transform: translateY(-2px);
 }
 
@@ -43,3 +259,117 @@
     fill: white;
 }
 
+/* --- Bubble Background Animation --- */
+.bubbles {
+    position: fixed;    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.bubble {
+    position: absolute;
+    bottom: -100px;
+    /* NEW: Rainbow colors for bubbles */
+    background: radial-gradient(circle, var(--bubble-color-inner) 0%, var(--bubble-color-outer) 100%);
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: bubble-up var(--bubble-duration) infinite;
+}
+
+/* Define 10 bubbles with different sizes, speeds, and RAINBOW colors */
+/* Each bubble now uses CSS custom properties for color and duration */
+.bubble:nth-child(1) { width: 40px; height: 40px; left: 10%; --bubble-duration: 12s; --bubble-color-inner: rgba(255, 0, 0, 0.5); --bubble-color-outer: rgba(255, 0, 0, 0.3); }     /* Red */
+.bubble:nth-child(2) { width: 60px; height: 60px; left: 20%; --bubble-duration: 15s; --bubble-color-inner: rgba(255, 127, 0, 0.5); --bubble-color-outer: rgba(255, 127, 0, 0.3); animation-delay: 2s;} /* Orange */
+.bubble:nth-child(3) { width: 50px; height: 50px; left: 30%; --bubble-duration: 10s; --bubble-color-inner: rgba(255, 255, 0, 0.5); --bubble-color-outer: rgba(255, 255, 0, 0.3); animation-delay: 4s;} /* Yellow */
+.bubble:nth-child(4) { width: 70px; height: 70px; left: 40%; --bubble-duration: 18s; --bubble-color-inner: rgba(0, 255, 0, 0.5); --bubble-color-outer: rgba(0, 255, 0, 0.3); animation-delay: 1s;}       /* Green */
+.bubble:nth-child(5) { width: 45px; height: 45px; left: 50%; --bubble-duration: 13s; --bubble-color-inner: rgba(0, 0, 255, 0.5); --bubble-color-outer: rgba(0, 0, 255, 0.3); animation-delay: 3s;}       /* Blue */
+.bubble:nth-child(6) { width: 65px; height: 65px; left: 60%; --bubble-duration: 16s; --bubble-color-inner: rgba(75, 0, 130, 0.5); --bubble-color-outer: rgba(75, 0, 130, 0.3); animation-delay: 5s;}    /* Indigo */
+.bubble:nth-child(7) { width: 55px; height: 55px; left: 70%; --bubble-duration: 11s; --bubble-color-inner: rgba(148, 0, 211, 0.5); --bubble-color-outer: rgba(148, 0, 211, 0.3); animation-delay: 0.5s;} /* Violet */
+.bubble:nth-child(8) { width: 75px; height: 75px; left: 80%; --bubble-duration: 14s; --bubble-color-inner: rgba(255, 20, 147, 0.5); --bubble-color-outer: rgba(255, 20, 147, 0.3); animation-delay: 2.5s;} /* Deep Pink */
+.bubble:nth-child(9) { width: 60px; height: 60px; left: 90%; --bubble-duration: 17s; --bubble-color-inner: rgba(0, 255, 255, 0.5); --bubble-color-outer: rgba(0, 255, 255, 0.3); animation-delay: 4.5s;} /* Cyan */
+.bubble:nth-child(10) { width: 50px; height: 50px; left: 5%; --bubble-duration: 10s; --bubble-color-inner: rgba(255, 105, 180, 0.5); --bubble-color-outer: rgba(255, 105, 180, 0.3); animation-delay: 1.5s;} /* Hot Pink */
+
+@keyframes bubble-up {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* --- Styles for the New Information Sections --- */
+.info-section {
+    width: 90%;
+    margin: 20px auto 40px auto;
+    text-align: left;
+    padding: 15px;
+    border-top: 2px solid #007bff; /* Changed to blue */
+}
+
+.info-section:last-child {
+    margin-bottom: 50px; /* Extra space at the bottom */
+}
+
+.info-section h2 {
+    color: #333;
+    font-size: 1.4em;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+.info-section p {
+    font-size: 1.05em;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 15px;
+}
+
+.info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-section li {
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.info-section li strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* --- Tool Tags/Icons Styling --- */
+.tool-icons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tool-tag {
+    background-color: #007bff; /* Changed to blue */
+    color: white; 
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border: 1px solid #ddd;
+    
+    filter: hue-rotate(0deg);
+    animation: tag-cycle 10s infinite linear;    
+}
+
+/* Keyframes for Tag Color Cycling */
+@keyframes tag-cycle {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+}
